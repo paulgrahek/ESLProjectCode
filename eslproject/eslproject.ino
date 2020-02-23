@@ -24,7 +24,7 @@ void loop() {
 
 // TODO: Account for imperfect "1" from on state, ensure values returned vary 1 to 0 with "off" and "on" states, respectively
 float getOpticalSensorReading(){
-  return 1-(float)analogRead(opticalSensorPin)/1023.0;
+  return 1.0-(float)analogRead(opticalSensorPin)/1023.0;
 }
 
 float getConditionedOpticalSensorReading(){
