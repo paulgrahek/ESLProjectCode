@@ -22,9 +22,14 @@ void loop() {
   delay(10000);
 }
 
+// TODO: Account for imperfect "1" from on state, ensure values returned vary 1 to 0 with "off" and "on" states, respectively
+float getOpticalSensorReading(){
+  return 1-(float)analogRead(opticalSensorPin)/1023.0;
+}
+
 float getConditionedOpticalSensorReading(){
   // Returns Optical Sensor Reading normalized between 0 and 1
-  sensorReadings[sensorReadingsInd] = (float)analogRead(opticalSensorPin)/1023.0;
+  sensorReadings[sensorReadingsInd] = getOpticalSensorReading();
   sensorReadingsInd += 1;
   if(sensorReadingsInd == 36){
     sensorReadingsInd = 0;
