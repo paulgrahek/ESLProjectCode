@@ -58,8 +58,8 @@ void loop() {
 
 // Returns optical sensor reading as normalized voltage
 float getOpticalSensorReading(){
-  float rawReading = (float)analogRead(opticalSensorPin);
-  float normalizedReading = normalizeVoltage(rawReading);
+  float rawReading = (float)analogRead(opticalSensorPin); // 0-5V
+  float normalizedReading = normalizeVoltage(rawReading); // Normalize to accepted voltage range
   if(normalizedReading < 0) return 0;
   else if(normalizedReading > 1) return 1;
   else return normalizedReading;
